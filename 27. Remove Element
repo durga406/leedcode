@@ -1,0 +1,58 @@
+    /**
+     *
+     * Given an array and a value, remove all instances of that value in place and return the new length.
+     *
+     * Do not allocate extra space for another array, you must do this in place with constant memory.
+     *
+     * The order of elements can be changed. It doesn't matter what you leave beyond the new length.
+     *
+     * Example:
+     * Given input array nums = [3,2,2,3], val = 3
+     *
+     * Your function should return length = 2, with the first two elements of nums being 2.
+     */
+     
+    /**
+     * Created by sherry on 17/3/3.
+     * 两个指针，一个指向值为val的数，一个指向数组最后一个，用当前数组最后一个数移动去填充删去数的位置。
+     */
+    public class Solution {
+         public int removeElement(int[] nums, int val) {
+            int len = nums.length;
+
+            for (int i = 0;i<nums.length;i++)
+            {
+                while (nums[i] == val && i < len)
+                {
+                    nums[i] = nums[--len];
+                }
+            }
+            return len;
+        }
+    }
+    
+    /**
+     * Created by sherry on 17/3/3.
+     * 另建一个数组（增加空间复杂度。。）
+     */
+    public class Solution {
+        public int removeElement(int[] nums, int val) {
+
+            int j = 0;
+            for(int i = 0; i < nums.length; i++){
+
+                if(nums[i] != val){
+                    nums[j] = nums[i];
+                    j++;
+                }
+            }
+
+            int A[] = new int[j];
+            for (int i = 0;i<j;i++)
+            {
+                A[i] = nums[i];
+            }
+            nums = A;
+            return j;
+        }
+    }
