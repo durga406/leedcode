@@ -14,10 +14,6 @@
     }
 }
 
-
-/**
- * 法二
- */
  public class Solution {
     public void sortColors(int[] nums) {
 int twoIndex = nums.length - 1;
